@@ -110,3 +110,9 @@ This is restaurant reservation site project repository For study.
     - Application Layer: 복잡한 로직을 모아서 처리
     - Controller 는 web에 대한 동작을 위해 처리되는 작업에 집중
     - Service는 web이 어떻게 작동해야하는지 알 필요가 없고 단순히 repository들를 이용해서 어떤 결과를 돌려줘야 한다는 application 에 대한 본질적인 작업에 집중
+    
+13. 가짜 객체(Mock Object)
+    - Mock: 남과 똑같은 행동을 하는 남을 따라하는
+    - Mockito: Spring 은 Mock Object Framework를 사용하고 있다. 그러므로 라이브러리 없어도 됨
+    - Spring Test: Spring ioc container 를 이용해서 spring 이 의존성을 관리하는 것을 활용 하거나 걍 Java 에 있는 객체만 이용해서 test 할 수도 있음
+    - POJO: Plain Old Java Object, 전통적인 java object 를 사용할 것을 권장
