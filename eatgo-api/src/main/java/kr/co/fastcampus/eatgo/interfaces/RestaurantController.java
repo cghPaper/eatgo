@@ -14,27 +14,30 @@ import java.util.List;
 
 @RestController // Componenet 의 일종
 public class RestaurantController {
-    @Autowired // Controller 를 만들어 줄 때 Spring 이 알아서 RestaurantRepository 를 생성해서 넣어줌
-    private RestaurantRepository restaurantRepository;
     @Autowired
-    private MenuItemRepository menuItemRepository;
+    private RestaurantService restaurantService;
+
+//    @Autowired // Controller 를 만들어 줄 때 Spring 이 알아서 RestaurantRepository 를 생성해서 넣어줌
+//    private RestaurantRepository restaurantRepository;
 //    @Autowired
-//    private RestaurantService restaurantService;
+//    private MenuItemRepository menuItemRepository;
     // Autowird 어노테이션을 쓰기 전에 객체 생성 방법
     //private RestaurantRepository repository = new RestaurantRepository();
 
     @GetMapping("/restaurants")
     public List<Restaurant> list() {
-        List<Restaurant> restaurants = restaurantRepository.findAll();
+        //List<Restaurant> restaurants = restaurantRepository.findAll();
+        List<Restaurant> restaurants = restaurantService.getRestaurants();
         return restaurants;
     }
 
     @GetMapping("/restaurants/{id}")
     public Restaurant detail(@PathVariable("id") Long id) {
-        //Restaurant restaurant = restaurantService.getRestaurantBy(id); // 기본정보 + 메뉴정보
-        Restaurant restaurant = restaurantRepository.findById(id);
-        List<MenuItem> menuItems = menuItemRepository.findAllByRestaurantId(id);
-        restaurant.setMenuItems(menuItems);
+        Restaurant restaurant = restaurantService.getRestaurant(id);
+//        기본정보 + 메뉴정보
+//        Restaurant restaurant = restaurantRepository.findById(id);
+//        List<MenuItem> menuItems = menuItemRepository.findAllByRestaurantId(id);
+//        restaurant.setMenuItems(menuItems);
         return restaurant;
     }
 }

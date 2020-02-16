@@ -108,3 +108,5 @@ This is restaurant reservation site project repository For study.
 12. Layered Architecture
     - UI Layer(Interfaces Package:Controller), Domain Layer(Domain Package: Restaurant, Repository)
     - Application Layer: 복잡한 로직을 모아서 처리
+    - Controller 는 web에 대한 동작을 위해 처리되는 작업에 집중
+    - Service는 web이 어떻게 작동해야하는지 알 필요가 없고 단순히 repository들를 이용해서 어떤 결과를 돌려줘야 한다는 application 에 대한 본질적인 작업에 집중

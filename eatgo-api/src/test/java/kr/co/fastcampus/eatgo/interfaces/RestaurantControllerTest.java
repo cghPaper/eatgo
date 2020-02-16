@@ -1,5 +1,6 @@
 package kr.co.fastcampus.eatgo.interfaces;
 
+import kr.co.fastcampus.eatgo.application.RestaurantService;
 import kr.co.fastcampus.eatgo.domain.MenuItemRepository;
 import kr.co.fastcampus.eatgo.domain.MenuItemRepositoryImpl;
 import kr.co.fastcampus.eatgo.domain.RestaurantRepository;
@@ -22,6 +23,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class RestaurantControllerTest {
     @Autowired
     private MockMvc mvc;
+    @SpyBean(RestaurantService.class)
+    private RestaurantService restaurantService;
 
     // Controller에 원하는 객체를 주입을 할 수 있다.
     // @Component/@Autowired 를 사용 시 Test 쪽에서 선언되어야 하는 어노테이션
@@ -63,6 +66,9 @@ public class RestaurantControllerTest {
             ))
             .andExpect(content().string(
                     containsString("\"name\":\"Cyber Food\"")
+            ))
+            .andExpect(content().string(
+                    containsString("Kimchi")
             ));
     }
 }

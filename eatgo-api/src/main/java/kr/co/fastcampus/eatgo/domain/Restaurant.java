@@ -31,9 +31,7 @@ public class Restaurant {
         return name + " in " + address;
     }
 
-    public List<MenuItem> getMenuItems() {
-        return menuItems;
-    }
+    public List<MenuItem> getMenuItems() { return menuItems; }
 
     public void addMenuItem(MenuItem menuItem) {
         menuItems.add(menuItem);
